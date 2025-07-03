@@ -57,11 +57,14 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+        <!-- En la sección <dependencies> de tu pom.xml -->
+
         <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

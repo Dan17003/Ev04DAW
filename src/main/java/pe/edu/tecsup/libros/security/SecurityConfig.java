@@ -47,13 +47,11 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // Permite que tu frontend en React (que corre en localhost:3000) se conecte
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
-        // Permite todos los métodos HTTP que usaremos en el CRUD
+        // ¡IMPORTANTE! Añade la URL de tu futuro frontend.
+        // El comodín '*' permite que cualquier subdominio en onrender.com se conecte.
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "https://*.onrender.com"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        // Permite que el frontend envíe estos encabezados
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
-
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
